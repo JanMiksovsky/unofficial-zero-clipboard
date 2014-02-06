@@ -33,8 +33,9 @@ Polymer( "zero-clipboard", {
 
   ready: function() {
     // Load the ZeroClipboard client.
+    var moviePath = this.resolvePath( "../zeroclipboard/ZeroClipboard.swf" );
     ZeroClipboard.config({
-      moviePath: "../zeroclipboard/ZeroClipboard.swf"
+      moviePath: moviePath
     });
     this._client = new ZeroClipboard( this.$.container );
     this._client.on( "dataRequested", function( client, args ) {
