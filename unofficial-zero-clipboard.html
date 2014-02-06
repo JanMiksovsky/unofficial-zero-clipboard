@@ -13,11 +13,19 @@ with any content.
 <polymer-element name="zero-clipboard" attributes="text">
 
 <template>
+
+  <style>
+  :host {
+    display: inline-block;
+  }
+  </style>
+
   <div id="container">
     <content>
       <button>Copy to clipboard</button>
     </content>
   </div>
+
 </template>
 
 <script>
