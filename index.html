@@ -23,13 +23,21 @@ body {
 }
 </style>
 
+<script>
+// window.addEventListener( "polymer-ready", function() {
+//   var button = document.querySelector( "#button" );
+//   var zeroClipboard = document.querySelector( "#zeroClipboard" );
+//   button.addEventListener( "click", function() {
+//     zeroClipboard.copy();
+//   });
+// });
+</script>
+
 </head>
 
 <body>
   <input id="textBox" type="text">
-  <zero-clipboard>
-    <button>Copy to clipboard</button>
-  </zero-clipboard>
+  <zero-clipboard id="zeroClipboard" text="Hello, world."></zero-clipboard>
 </body>
 
 </html>

@@ -2,19 +2,33 @@
 
 <script src="../zeroclipboard/ZeroClipboard.js"></script>
 
-<polymer-element name="zero-clipboard">
+<polymer-element name="zero-clipboard" attributes="text">
 
 <template>
-  <!-- TODO: Can we just use shadow root for this? -->
-  <div id="placeholder">zero clipboard</div>
-  <content></content>
+  <div id="container">
+    <content>
+      <button>Copy to clipboard</button>
+    </content>
+  </div>
 </template>
 
 <script>
 Polymer( "zero-clipboard", {
 
-  ready: function() {
+  // copy: function() {
+  //   this._client.setText( this.text );
+  // },
 
+  ready: function() {
+    // Load the ZeroClipboard client.
+    ZeroClipboard.config({
+      moviePath: "../zeroclipboard/ZeroClipboard.swf"
+    });
+    this._client = new ZeroClipboard( this.$.container );
+    this._client.on( "dataRequested", function( client, args ) {
+      console.log( "dataRequested: " + this.text );
+      client.setText( this.text );
+    }.bind( this ));
   }
 
 });
