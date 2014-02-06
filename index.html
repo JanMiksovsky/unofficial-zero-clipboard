@@ -24,20 +24,20 @@ body {
 </style>
 
 <script>
-// window.addEventListener( "polymer-ready", function() {
-//   var button = document.querySelector( "#button" );
-//   var zeroClipboard = document.querySelector( "#zeroClipboard" );
-//   button.addEventListener( "click", function() {
-//     zeroClipboard.copy();
-//   });
-// });
+window.addEventListener( "polymer-ready", function() {
+  document.querySelector( "#template" ).model = {
+    text: "Hello, world."
+  };
+});
 </script>
 
 </head>
 
 <body>
-  <input id="textBox" type="text">
-  <zero-clipboard id="zeroClipboard" text="Hello, world."></zero-clipboard>
+  <template id="template" bind>
+    <input id="textBox" type="text" value="{{text}}">
+    <zero-clipboard id="zeroClipboard" text="{{text}}"></zero-clipboard>
+  </template>
 </body>
 
 </html>

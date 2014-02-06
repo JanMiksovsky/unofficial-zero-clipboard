@@ -1,3 +1,11 @@
+<!--
+Presents a button or other content that, when clicked, will copy text to the
+clipboard.
+
+By default, this shows a "Copy to clipboard" button, but this can be replaced
+with any content.
+-->
+
 <link rel="import" href="../polymer/polymer.html">
 
 <script src="../zeroclipboard/ZeroClipboard.js"></script>
@@ -15,10 +23,6 @@
 <script>
 Polymer( "zero-clipboard", {
 
-  // copy: function() {
-  //   this._client.setText( this.text );
-  // },
-
   ready: function() {
     // Load the ZeroClipboard client.
     ZeroClipboard.config({
@@ -26,7 +30,7 @@ Polymer( "zero-clipboard", {
     });
     this._client = new ZeroClipboard( this.$.container );
     this._client.on( "dataRequested", function( client, args ) {
-      console.log( "dataRequested: " + this.text );
+      // ZeroClipboard wants to know what text to put on the clipboard.
       client.setText( this.text );
     }.bind( this ));
   }
