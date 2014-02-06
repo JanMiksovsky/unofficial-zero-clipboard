@@ -1,0 +1,12 @@
+{
+  "name": "zero-clipboard",
+  "description": "A component that wraps ZeroClipboard",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "zeroclipboard": "zeroclipboard/ZeroClipboard#1.x-master"
+  },
+  "ignore": [
+    "**/.*"
+  ]
+}

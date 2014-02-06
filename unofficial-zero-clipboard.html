@@ -1,0 +1,23 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script src="../zeroclipboard/ZeroClipboard.js"></script>
+
+<polymer-element name="zero-clipboard">
+
+<template>
+  <!-- TODO: Can we just use shadow root for this? -->
+  <div id="placeholder">zero clipboard</div>
+  <content></content>
+</template>
+
+<script>
+Polymer( "zero-clipboard", {
+
+  ready: function() {
+
+  }
+
+});
+</script>
+
+</polymer-element>
