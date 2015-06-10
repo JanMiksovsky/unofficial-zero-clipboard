@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0",
-    "zeroclipboard": "zeroclipboard/zeroclipboard#1.x-master"
+    "zeroclipboard": "zeroclipboard/zeroclipboard#^2.2"
   },
   "ignore": [
     "**/.*"
