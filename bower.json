@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "polymer": "Polymer/polymer#^1.0",
     "zeroclipboard": "zeroclipboard/zeroclipboard#1.x-master"
   },
   "ignore": [

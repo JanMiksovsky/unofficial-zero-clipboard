@@ -7,12 +7,9 @@ with any content.
 -->
 
 <link rel="import" href="../polymer/polymer.html">
-
 <script src="../zeroclipboard/ZeroClipboard.js"></script>
 
-<polymer-element name="zero-clipboard" attributes="text">
-
-<template>
+<dom-module id="zero-clipboard">
 
   <style>
   :host {
@@ -24,35 +21,41 @@ with any content.
   }
   </style>
 
-  <div id="container">
-    <content>
-      <button>Copy to clipboard</button>
-    </content>
-  </div>
+  <template>
+    <div id="container">
+      <content>
+        <button>Copy to clipboard</button>
+      </content>
+    </div>
+  </template>
 
-</template>
+</dom-module>
 
 <script>
-Polymer( "zero-clipboard", {
+Polymer({
+
+  is: 'zero-clipboard',
+
+  properties: {
+    text: String
+  },
 
   ready: function() {
     // Load the ZeroClipboard client.
-    var moviePath = this.resolvePath( "../zeroclipboard/ZeroClipboard.swf" );
+    var moviePath = this.resolveUrl('../zeroclipboard/ZeroClipboard.swf');
     ZeroClipboard.config({
       moviePath: moviePath
     });
-    this._client = new ZeroClipboard( this.$.container );
-    this._client.on( "load", function() {
+    this._client = new ZeroClipboard(this.$.container);
+    this._client.on('load', function() {
       // Only show button (or whatever the trigger is) when client is loaded.
-      this.$.container.style.visibility = "visible";
-    }.bind( this ));
-    this._client.on( "dataRequested", function( client, args ) {
+      this.$.container.style.visibility = 'visible';
+    }.bind(this));
+    this._client.on('dataRequested', function(client, args) {
       // ZeroClipboard wants to know what text to put on the clipboard.
-      client.setText( this.text );
-    }.bind( this ));
+      client.setText(this.text);
+    }.bind(this));
   }
 
 });
 </script>
-
-</polymer-element>

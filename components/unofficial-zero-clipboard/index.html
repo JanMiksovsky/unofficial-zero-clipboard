@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <title>zero-clipboard</title>
+  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="unofficial-zero-clipboard.html">
+
+  <style>
+  body,
+  button,
+  input {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  body {
+    margin: 0.5in;
+  }
+  </style>
+
+  <script>
+  window.addEventListener("WebComponentsReady", function() {
+    document.querySelector("#template").model = {
+      text: "Hello, world."
+    };
+  });
+  </script>
+
+</head>
+
+<body>
+  <template id="template" is="dom-bind">
+    <input id="textBox" type="text" value="{{text::input}}">
+    <zero-clipboard id="zeroClipboard" text="{{text}}"></zero-clipboard>
+  </template>
+</body>
+
+</html>
